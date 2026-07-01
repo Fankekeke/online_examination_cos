@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:online-exam-system-backend}
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/online_exam_system?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+  devtools:
+    restart:
+      enabled: true
+      additional-paths:
+        - src/main/java
+        - src/main/resources
+        - static
+    livereload:
+      enabled: true
+
+server:
+  port: ${SERVER_PORT:8010}
+  error:
+    whitelabel:
+      enabled: false
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  global-config:
+    banner: false
+  type-aliases-package: com.onlineexamsystem.backend.entity
+
+logging:
+  level:
+    com.onlineexamsystem.backend: INFO
+
+app:
+  jwt-secret-key: ${JWT_SECRET_KEY:online_exam_jwt_secret}
+  jwt-access-token-expires-minutes: ${JWT_ACCESS_TOKEN_EXPIRES_MINUTES:15}
+  static-dir: ${APP_STATIC_DIR:static}
+  upload-dir: ${UPLOAD_DIR:static/uploads}
+  frontend-dir: ${APP_FRONTEND_DIR:user}
+  frontend-entry: ${APP_FRONTEND_ENTRY:index.html}

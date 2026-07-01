@@ -1,0 +1,2 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.onlineexamsystem.backend.config.DotenvEnvironmentPostProcessor
